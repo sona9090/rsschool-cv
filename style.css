@@ -1,0 +1,30 @@
+:root {
+	--pad: 16px;
+
+	@media screen and (min-width: 1600px) {
+		--pad: 24px;
+	}
+
+	@media screen and (min-width: 1600px) {
+		--pad: 48px;
+	}
+}
+
+* {
+  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+header,
+main {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: var(--pad);
+}
