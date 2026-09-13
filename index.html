@@ -35,13 +35,141 @@
       </div>
 
       <div class="full-width">
-        <h2>About Me</h2>
+        <h3>About Me</h3>
         <p>
-          Frontend developer with experience in Shopify, JavaScript,
-          React and modern web development.
+          Frontend developer with experience in Shopify, JavaScript, 
+          React and modern web development. Experienced in building scalable, responsive, and production-ready applications. 
+					Passionate about solving challenging engineering problems, writing clean and maintainable code, and continuously
+					improving software quality.
         </p>
       </div>
     </section>
+
+		<section class="contacts">
+			<h3>Contacts</h3>
+			<div class="full-width">
+				<div class="contacts-row full-width">
+					<div class="contacts-soc">Discord:</div>
+					<div class="contacts-name">sona_sarkisian</div>
+				</div>
+				<div class="contacts-row full-width">
+					<div class="contacts-soc">GitHub:</div>
+					<div class="contacts-name">
+						<a href="https://github.com/sona9090">
+							https://github.com/sona9090
+						</a>
+					</div>
+				</div>
+				<div class="contacts-row full-width">
+					<div class="contacts-soc">Email:</div>
+					<div class="contacts-name">
+						<a href="mailto:sonasarkisian90@gmail.com" target="_blank">
+							sonasarkisian90@gmail.com
+						</a>
+					</div>
+				</div>
+				<div class="contacts-row full-width">
+					<div class="contacts-soc">LinkedIn:</div>
+					<div class="contacts-name">
+						<a href="https://www.linkedin.com/in/sona-sargsyan-1bbaa0385" target="_blank">
+							https://www.linkedin.com/in/sona-sargsyan-1bbaa0385
+						</a>
+					</div>
+				</div>
+				<div class="contacts-row full-width">
+					<div class="contacts-soc">CodeSandbox:</div>
+					<div class="contacts-name">
+						<a href="https://codesandbox.io/u/sonasarkisian90" target="_blank">
+							https://codesandbox.io/u/sonasarkisian90
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="skills">
+			<h3>Skills</h3>
+			<div class="full-width">
+				React, Next.js, JavaScript (ES6+), TypeScript, HTML5,
+				CSS3, SCSS, SASS, LESS, Redux, React Router,
+				Shopify, Liquid, Shopify Theme Development,
+				Responsive Web Development, Frontend Architecture,
+				Component-Based Development, Reusable UI
+				Components, Performance Optimization, CrossBrowser Compatibility, Accessibility (WCAG), REST
+				API Integration, Responsive Design, Web Performance,
+				UI Engineering, Interactive UI Development, CSS
+				Animations, JavaScript Animations, Code Refactoring,
+				Git, Webpack, npm, VS Code, Chrome DevTools, Agile,
+				Software Development Lifecycle (SDLC), Requirements
+				Analysis, Technical Problem Solving
+				<hr class="divider">
+				AI-Assisted Development, ChatGPT, GitHub Copilot, Prompt 
+				Engineering
+			</div>
+		</section>
+
+		<section class="examples">
+			<h3>Code Examples</h3>
+			<div class="examples-row full-width">
+				<div class="examples-heading">Starry sky animation</div>
+				<div class="examples-descr">
+					It is the animation I've used on this page, modifying my previous code (made for fun): 
+					<a href="https://codesandbox.io/p/sandbox/starry-sky-mountain-2vcr6v">https://codesandbox.io/p/sandbox/starry-sky-mountain-2vcr6v</a>
+					<br>
+					<pre><code>
+const animateStars = () => {
+  const starsSpace = document.querySelector("#stars");
+  document.querySelectorAll(".star").forEach((item, key) => {
+    item.setAttribute(
+      "style",
+      `top: ${Math.random() * starsSpace.clientHeight}px; 
+      left: ${Math.random() * starsSpace.clientWidth}px;
+      right: ${Math.random() * starsSpace.clientWidth}px;`
+    );
+  });
+};
+
+const generateStars = () => {
+  if (document.getElementById("stars") === null) return;
+
+  const stars = document.getElementById("stars");
+  const star = '<div class="star"></div>';
+
+  const starrySky = star.repeat(300);
+  stars.innerHTML = starrySky;
+
+  animateStars();
+};
+
+generateStars();
+setInterval(() => {
+  animateStars();
+}, 4000);
+
+document.getElementById("mountain").innerHTML = `
+`;
+
+					</code></pre>
+				</div>
+			</div>
+			<hr class="divider">
+			<div class="examples-row full-width">
+				<div class="examples-heading"></div>
+				<div class="examples-descr"></div>
+			</div>
+			<div class="examples-row full-width">
+				<div class="examples-heading"></div>
+				<div class="examples-descr"></div>
+			</div>
+			<div class="examples-row full-width">
+				<div class="examples-heading"></div>
+				<div class="examples-descr"></div>
+			</div>
+			<div class="examples-row full-width">
+				<div class="examples-heading"></div>
+				<div class="examples-descr"></div>
+			</div>
+		</section>
   </main>
 
   <div id="stars"></div>
