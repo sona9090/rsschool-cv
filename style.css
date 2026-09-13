@@ -1,12 +1,14 @@
 :root {
 	--pad: 16px;
+	--avatar-frame-size: -5px;
+	--container-width: min(100vw, 1260px);
 
-	@media screen and (min-width: 1600px) {
-		--pad: 24px;
+	@media screen and (min-width: 768px) {
+		--pad: 20px 24px;
 	}
 
-	@media screen and (min-width: 1600px) {
-		--pad: 48px;
+	@media screen and (min-width: 1260px) {
+		--pad: 20px 48px;
 	}
 }
 
@@ -14,17 +16,102 @@
   box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	outline: none;
+}
+
+html {
+	overflow-x: hidden;
+	scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+	display: none;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Michroma", sans-serif;
   line-height: 1.5;
+	background: linear-gradient(to top, indigo, darkblue, black) no-repeat center
+    center/contain;
+	color: #cdffff;
+	min-height: 100vh;
+}
+
+.full-width {
+	width: 100%;
 }
 
 header,
 main {
-  width: min(1200px, 100%);
   margin: 0 auto;
+	z-index: 1;
+}
+
+header {
+	position: sticky;
   padding: var(--pad);
+	top: 0;
+}
+
+.header-inner {
+	width: var(--container-width);
+}
+
+main {
+	position: relative;	
+	width: var(--container-width);
+}
+
+main > section {
+	background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 50px #00ffffc9, 0 0 10px lightseagreen;
+  padding: var(--pad);
+}
+
+#avatar {
+	width: min(80px, 30vw);
+	height: min(80px, 30vw);
+	object-fit: cover;
+	border-radius: 50%;
+	position: relative;
+}
+
+#avatar::after {
+	content: "";
+	display: block;
+	position: absolute;
+	inset: var(--avatar-frame-size);
+	background: linear-gradient(cyan, white);
+}
+
+#stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.star {
+  width: 2px;
+  height: 1px;
+  background: yellow;
+  box-shadow: 0 0 10px 1px white;
+  z-index: 1;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  transition: all 6s;
+	opacity: 0.7;
+}
+
+.about {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-end;
+	gap: 25px 50px;
+}
+
+.about-row {
+	margin-top: auto;
 }
