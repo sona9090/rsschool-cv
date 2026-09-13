@@ -36,8 +36,7 @@ const menuData = [
 	{ name: "Skills", link: "" },
 	{ name: "Code examples", link: "" },
 	{ name: "Experience", link: "" },
-	{ name: "Education", link: "" },
-	{ name: "English level", link: "" }
+	{ name: "Education", link: "" }
 ];
 
 const generateMenu = () => {
