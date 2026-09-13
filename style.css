@@ -179,3 +179,20 @@ h3 {
 .examples a {
 	color: inherit;
 }
+
+.examples-codes-wrapper {
+	display: flex;
+	justify-content: flex-start;
+	gap: 25px;
+}
+
+pre {
+	display: inline-flex;
+}
+
+.experience-heading {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
+	margin-bottom: 12px;
+}

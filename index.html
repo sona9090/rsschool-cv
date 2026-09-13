@@ -154,21 +154,303 @@ document.getElementById("mountain").innerHTML = `
 			</div>
 			<hr class="divider">
 			<div class="examples-row full-width">
-				<div class="examples-heading"></div>
-				<div class="examples-descr"></div>
+				<div class="examples-heading">Cat breeds search - React</div>
+				<div class="examples-descr">
+  			A simple search bar for finding a cat breed:
+				<a href="https://codesandbox.io/p/sandbox/github/sona9090/simpe_react_searchbar">
+					https://codesandbox.io/p/sandbox/github/sona9090/simpe_react_searchbar
+				</a>
+
+  <pre><code>export default function App() {
+  const [searchVal, setSearchVal] = useState("");
+  const changeHandler = (event) => setSearchVal(event.target.value);
+
+  return (
+    &lt;div className="App" style={{ textAlign: "left" }}&gt;
+      &lt;h1&gt;Cat breeds&lt;/h1&gt;
+
+      &lt;input
+        type="text"
+        placeholder="Search..."
+        value={searchVal}
+        onChange={(event) =&gt; changeHandler(event)}
+      /&gt;
+
+      &lt;br /&gt;
+      &lt;br /&gt;
+
+      &lt;div id="result"&gt;
+        {data
+          .filter((item) =&gt; {
+            return (
+              searchVal !== "" &&
+              item.toLowerCase().includes(searchVal.toLowerCase()) &&
+              item
+            );
+          })
+          .map((item) =&gt; (
+            &lt;div&gt;{item}&lt;/div&gt;
+          ))}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+</div>
 			</div>
+			<hr class="divider">
 			<div class="examples-row full-width">
-				<div class="examples-heading"></div>
-				<div class="examples-descr"></div>
+				<div class="examples-heading">Cheshire Cat - my CSS drawing</div>
+				<div class="examples-descr">
+					My animated CSS drawing for Halloween.
+					View full code and demo (and meet the Cheshire Cat) <a href="https://codesandbox.io/p/sandbox/old-fast-nszg8h" target="_blank">here</a>
+					<div class="full-width examples-codes-wrapper">
+						<pre>
+							<code>
+// Let's draw beautiful and creepy eyes and bring them to life!
+.eye {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 115px;
+  background: linear-gradient(to left top, #129078 40%, #37f5d7);
+  border-radius: 65% 0;
+  transform: rotate(75deg);
+  filter: drop-shadow(0 0 25px cyan);
+  position: relative;
+}
+
+.eye + .eye {
+  transform: scale(-1, 1) rotate(75deg);
+}
+
+#eyes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 135px;
+}
+
+.pupil {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 10px;
+  height: 85px;
+  background: black;
+  transform: rotate(105deg);
+  border-radius: 100%;
+  position: relative;
+}
+
+/* light in the eyes */
+.pupil::after {
+  content: "";
+  width: 5px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  filter: blur(2px);
+  top: -25px;
+  left: -5px;
+  display: block;
+  position: relative;
+}
+
+.eye + .eye .pupil::after {
+  top: -40px;
+  left: 5px;
+  width: 4px;
+  height: 11px;
+  opacity: 0.8;
+}
+
+.eye::after {
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(
+      rgba(255, 255, 255, 0.6) 30%,
+      rgba(255, 255, 255, 0) 50%
+    )
+    no-repeat -100px -80px/200% 200%;
+  position: absolute;
+  border-radius: inherit;
+  filter: blur(2px);
+}
+
+.eye + .eye::after {
+  background: radial-gradient(
+      rgba(255, 255, 255, 0.6) 24%,
+      rgba(255, 255, 255, 0) 26%
+    )
+    no-repeat -100px -25px/200% 200%;
+  filter: blur(4px);
+  opacity: 0.8;
+}
+
+.eye::before {
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  position: absolute;
+  border-radius: inherit;
+  filter: blur(2px);
+  z-index: 2;
+  width: 0;
+  animation: blink 3s 2;
+  animation-delay: 5s;
+}
+
+@keyframes blink {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  80% {
+    width: 0;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+							</code>
+						</pre>
+
+						<pre>
+							<code>
+// Let's generate that incredible smile!
+const isNull = (elem) => elem === null;
+
+let fangs = [...Array(6)]
+  .map((u, i) => i)
+  .map((item) => {
+    let fang = `<div class="fang${item === 0 ? "" : item}"></div>`;
+    return `${fang}\n${fang}`;
+  })
+  .join("\n");
+
+let lower_chin = [...Array(5)]
+  .map((u, i) => i)
+  .map((item) => {
+    let lower_chin_tooth = `<div class="lower_chin_tooth${item}"></div>`;
+    return `${lower_chin_tooth}\n${lower_chin_tooth}`;
+  })
+  .join("\n");
+
+let teeth =
+  fangs +
+  [...Array(7)]
+    .map((u, i) => i)
+    .map((item) => {
+      let tooth = `<div class="tooth${item === 0 ? "" : item}"></div>`;
+      return `${tooth}\n${tooth}`;
+    })
+    .join("\n") +
+  lower_chin;
+
+if (!isNull(document.getElementById("teeth"))) {
+  document.getElementById("teeth").innerHTML = teeth;
+}
+							</code>
+						</pre>
+					</div>
+				</div>
 			</div>
-			<div class="examples-row full-width">
-				<div class="examples-heading"></div>
-				<div class="examples-descr"></div>
+		</section>
+
+		<section class="experience">
+			<h3>Experience</h3>
+			<div class="full_width">
+				<div class="experience-row full_width">
+					<div class="experience-heading">
+						<strong>Shopify Developer at "Ashstone Studios"</strong>
+						<div>Apr 2024 — Jul 2026</div>
+					</div>
+					<div class="full_width">
+						Develop commercial Shopify solutions for international eCommerce projects.
+						<br>
+						<b class="full_width">Technologies: </b>
+						Shopify, Liquid, JavaScript, HTML5, SCSS, Git.
+					</div>
+				</div>
+				<hr class="divider">
+				<div class="experience-row full_width">
+					<div class="experience-heading">
+						<strong>Frontend Engineer at "Digitain"</strong>
+						<div>Aug 2022 — Mar 2024</div>
+					</div>
+
+					<div class="full_width">
+						Developed customer-facing functionality for large-scale web applications in the online gaming industry.
+						<br>
+						<b class="full_width">Technologies: </b>
+						JavaScript, CSS, REST APIs, Git, HTML5.
+					</div>
+				</div>
+
+				<hr class="divider">
+
+				<div class="experience-row full_width">
+					<div class="experience-heading">
+						<strong>Senior Frontend Engineer at "Haytech Solutions"</strong>
+						<div>Mar 2022 — Jun 2022</div>
+					</div>
+
+					<div class="full_width">
+						Developed modern web applications and business solutions for international clients.
+						<br>
+						<b class="full_width">Technologies: </b>
+						React, Next.js, JavaScript, TypeScript, SCSS, LESS, Git, Webpack.
+					</div>
+				</div>
 			</div>
-			<div class="examples-row full-width">
-				<div class="examples-heading"></div>
-				<div class="examples-descr"></div>
+		</section>
+
+		<section class="education">
+			<div class="experience-row full_width">
+			<div class="experience-heading">
+				<strong>West Ukrainian National University</strong>
+				<div>Sep 2010 — Jun 2014</div>
 			</div>
+
+			<div class="full_width">
+				Bachelor of Science
+				<br>
+				Computer Systems and Networks Engineering
+				<br>
+				Yerevan
+			</div>
+			</div>
+
+			<hr class="divider">
+
+			<div class="experience-row full_width">
+				<div class="experience-heading">
+					<strong>Yerevan State Music College after Romanos Melikyan</strong>
+					<div>Sep 2005 — Jun 2009</div>
+				</div>
+
+				<div class="full_width">
+					Teacher of Violin, Teacher of Aesthetic Education, Orchestra Artist
+					<br>
+					Yerevan
+				</div>
+			</div>
+
+			<hr class="divider">
+
+			<!--TODO: add RSSchool-->
 		</section>
   </main>
 
