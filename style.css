@@ -21,6 +21,7 @@
 html {
 	overflow-x: hidden;
 	scrollbar-width: none;
+	scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
@@ -71,10 +72,16 @@ main {
 }
 
 main > section {
+	position: relative;
 	background: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 50px #00ffffc9, 0 0 10px lightseagreen;
   padding: 20px var(--pad);
 	margin-top: 50px;
+}
+
+.anchor {
+	position: absolute;
+	top: -80px;
 }
 
 #avatar {
@@ -141,7 +148,7 @@ main > section {
 	display: block;
 }
 
-h3 {
+h2 {
 	margin-bottom: 16px;
 }
 
@@ -159,7 +166,8 @@ h3 {
 }
 
 .projects a,
-.contacts-name a {
+.contacts-name a, 
+footer a {
 	color: inherit;
 	text-underline-offset: 5px;
 }
@@ -208,6 +216,35 @@ pre {
 	margin-top: 16px;
 }
 
+.skills li,
+.contacts li,
 .projects li:not(:first-child) {
 	margin-top: 8px;
+}
+
+.skills ul,
+.contacts ul {
+	list-style: none;
+}
+
+footer {
+	background: black;
+	padding: 24px var(--pad);
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.logo {
+	width: 200px;
+	filter: invert(1);
+}
+
+.footer-right {
+	text-align: right;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-left: auto;
 }

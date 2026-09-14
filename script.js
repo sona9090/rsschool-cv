@@ -31,13 +31,13 @@ const starryAnimation = () => {
 };
 
 const menuData = [
-	{ name: "About me", link: "" },
-	{ name: "Contacts", link: "" },
-	{ name: "Skills", link: "" },
-	{ name: "Code examples", link: "" },
-	{ name: "Experience", link: "" },
-	{ name: "Education", link: "" },
-	{ name: "Projects", link: "" }
+	{ name: "About me", link: "#about" },
+	{ name: "Contacts", link: "#contacts" },
+	{ name: "Skills", link: "#skills" },
+	{ name: "Code examples", link: "#examples" },
+	{ name: "Experience", link: "#experience" },
+	{ name: "Education", link: "#education" },
+	{ name: "Projects", link: "#projects" }
 ];
 
 const generateMenu = () => {
