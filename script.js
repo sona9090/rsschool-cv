@@ -50,6 +50,49 @@ const generateMenu = () => {
 	menu.innerHTML = menuItems;
 };
 
+const mobileMenuButton = document.getElementById("mobile_menu_button");
+const menu = document.getElementById("menu");
+
+const closeMobileMenu = () => {
+	mobileMenuButton.classList.remove("active");
+	menu.classList.remove("active");
+	document.body.classList.remove("menu-open");
+
+	mobileMenuButton.setAttribute("aria-expanded", "false");
+	mobileMenuButton.setAttribute("aria-label", "Open menu");
+};
+
+const openMobileMenu = () => {
+	mobileMenuButton.classList.add("active");
+	menu.classList.add("active");
+	document.body.classList.add("menu-open");
+
+	mobileMenuButton.setAttribute("aria-expanded", "true");
+	mobileMenuButton.setAttribute("aria-label", "Close menu");
+};
+
+mobileMenuButton.addEventListener("click", () => {
+	const isOpen = menu.classList.contains("active");
+
+	if (isOpen) {
+		closeMobileMenu();
+	} else {
+		openMobileMenu();
+	}
+});
+
+menu.addEventListener("click", (event) => {
+	if (event.target.closest("a")) {
+		closeMobileMenu();
+	}
+});
+
+window.addEventListener("resize", () => {
+	if (window.innerWidth > 768) {
+		closeMobileMenu();
+	}
+});
+
 document.addEventListener("DOMContentLoaded", () => {
 	starryAnimation();
 	generateMenu();
