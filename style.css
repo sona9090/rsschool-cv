@@ -199,6 +199,11 @@ main > section {
 	color: inherit;
 	padding: 20px 0;
 	display: block;
+	transition: text-shadow 0.3s;
+}
+
+#menu a:hover {
+	text-shadow: 0 2px 10px white;
 }
 
 h2 {
